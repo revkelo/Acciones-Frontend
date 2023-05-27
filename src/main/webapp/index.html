@@ -1,13 +1,130 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Prueba api</title>
+<html lang="en">
 
+<head>
+  <title>Mi página con menú Bootstrap</title>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="./js/chartData.js"></script>
 </head>
+
 <body>
-<p id="texto"></p>
-	<script type="text/javascript" 
-	src="script.js"></script>
+ <!-- Menú de navegación -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#inicio">Inicio</a></li>
+          <li><a href="#acciones">Acciones que manejamos</a></li>
+          <li><a href="#footer">Contactar</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a></li>
+          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Contenido de la página -->
+  <div class="container content" id="inicio">
+    <h1>Bienvenido a mi sitio web</h1>
+    <p>¡Bienvenido/a a nuestra página de inversiones en acciones! Si estás aquí es porque probablemente estás
+      interesado/a en aprender más sobre el emocionante mundo de la inversión en acciones. Ya sea que seas un/a
+      principiante en este campo o un/a inversor/a experimentado/a, nuestra plataforma te proporcionará la
+      información y las herramientas necesarias para tomar decisiones informadas y maximizar tus ganancias.
+
+      Invertir en acciones puede parecer intimidante al principio, pero en realidad es una forma accesible y
+      rentable de hacer crecer tu dinero a largo plazo. En nuestra página, encontrarás recursos para entender los
+      conceptos clave de la inversión en acciones, como el análisis de empresas y la diversificación de cartera.
+      Además, te ofrecemos la oportunidad de invertir en una amplia gama de acciones, desde las más grandes y
+      estables hasta las más innovadoras y prometedoras.</p>
+  </div>
+
+  <div class="container" id="acciones">
+    <h2>Acciones</h2>
+
+    <!-- GameStop Chart -->
+    <canvas id="chartGameStop"></canvas>
+
+    <!-- Apple Chart -->
+    <canvas id="chartApple"></canvas>
+
+    <!-- Tesla Chart -->
+    <canvas id="chartTesla"></canvas>
+
+    <!-- Microsoft Chart -->
+    <canvas id="chartMicrosoft"></canvas>
+
+    <!-- Google Chart -->
+    <canvas id="chartGoogle"></canvas>
+
+    <!-- Opera Chart -->
+    <canvas id="chartOpera"></canvas>
+
+    <!-- Discord Chart -->
+    <canvas id="chartDiscord"></canvas>
+
+    <!-- Samsung Chart -->
+    <canvas id="chartSamsung"></canvas>
+    <div id="cuadro"></div>
+    <p>Precio Accion :4 dolares</p>
+  </div>
+
+<!-- User Table -->
+    <h2>Usuarios</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Contraseña</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Use JavaScript to populate the table rows with user data -->
+      </tbody>
+    </table>
+
+  <h2>Agregar Nueva Gráfica</h2>
+  <form id="newChartForm">
+    <label for="chartName">Nombre de la Gráfica:</label>
+    <input type="text" id="chartName" name="chartName" required>
+    <button type="submit">Ingresar Nueva Gráfica</button>
+  </form>
+
+
+
+
+  <script src="./js/script.js"></script>
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <p class="text-muted">© 2023 Mi sitio web</p>
+    </div>
+  </footer>
+
+ <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </body>
+
+
+
 </html>

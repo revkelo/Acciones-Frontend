@@ -1,0 +1,16 @@
+.content {
+    margin-top: 70px;
+    /* ajusta este valor según sea necesario para que el contenido esté debajo del menú */
+  }
+  
+  .footer {
+    background-color: #222222;
+    margin-top: 50px;
+    padding: 20px 0;
+    color: #fff;
+  }
+  #cuadro {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+}

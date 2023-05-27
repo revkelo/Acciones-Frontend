@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulario de inicio de sesión y registro</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- Estilos personalizados -->
+<link rel="stylesheet" href="./css/loginStyle.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Iniciar sesión</h2>
+				<form action="/api/login" method="get">
+
+					<div class="form-group">
+						<label for="correo">Correo electrónico:</label> <input
+							type="email" class="form-control" id="email" name="email"
+							placeholder="Introduce tu correo electrónico">
+					</div>
+					<div class="form-group">
+						<label for="contrasena-registro">Contraseña:</label> <input
+							type="password" class="form-control" name="contrasena"
+							id="contrasena" placeholder="Introduce tu contraseña">
+					</div>
+					<button type="submit" class="btn btn-primary">Iniciar
+						sesión</button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<h2>Registrarse</h2>
+				<form action="/api/usuario" method="post">
+
+					<div class="form-group">
+						<label for="correo">Usuario:</label> <input type="text"
+							class="form-control" id="nombre" name="nombre"
+							placeholder="Introduce tu usuario">
+					</div>
+					<div class="form-group">
+						<label for="correo">Correo electrónico:</label> <input
+							type="email" class="form-control" id="email" name="email"
+							placeholder="Introduce tu correo electrónico">
+					</div>
+					<div class="form-group">
+						<label for="contrasena-registro">Contraseña:</label> <input
+							type="password" class="form-control" name="contrasena"
+							id="contrasena" placeholder="Introduce tu contraseña">
+					</div>
+
+					<button type="submit" class="btn btn-primary">Registrarse</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Footer -->
+	<footer class="footer" id="footer">
+		<div class="container">
+			<p class="text-muted">© 2023 Mi sitio web</p>
+		</div>
+	</footer>
+</body>
+</html>

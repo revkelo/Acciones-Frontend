@@ -1,0 +1,33 @@
+body {
+    background-color: #222222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin-top: 50px;
+}
+.form-control {
+    background-color: #222;
+    border-color: #ccc;
+    color: #fff;
+}
+.btn-primary {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #000;
+    border-color: #fff;
+    color: #fff;
+}
+.footer {
+    background-color: #1b1b1b;
+    margin-top: 50px;
+    padding: 20px 0;
+    color: #fff;
+  }

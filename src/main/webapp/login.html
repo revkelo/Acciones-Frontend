@@ -42,22 +42,23 @@
 			</div>
 			<div class="col-md-6">
 				<h2>Registrarse</h2>
-				<form action="/api/usuario" method="post">
+				<form id="registerForm">
 
 					<div class="form-group">
 						<label for="correo">Usuario:</label> <input type="text"
-							class="form-control" id="nombre" name="nombre"
+							class="form-control" id="nombreRegister" name="nombreRegister"
 							placeholder="Introduce tu usuario">
 					</div>
 					<div class="form-group">
 						<label for="correo">Correo electrónico:</label> <input
-							type="email" class="form-control" id="email" name="email"
+							type="email" class="form-control" id="emailRegister"
+							name="emailRegister"
 							placeholder="Introduce tu correo electrónico">
 					</div>
 					<div class="form-group">
 						<label for="contrasena-registro">Contraseña:</label> <input
-							type="password" class="form-control" name="contrasena"
-							id="contrasena" placeholder="Introduce tu contraseña">
+							type="password" class="form-control" name="contrasenaRegister"
+							id="contrasenaRegister" placeholder="Introduce tu contraseña">
 					</div>
 
 					<button type="submit" class="btn btn-primary">Registrarse</button>
@@ -74,8 +75,10 @@
 			<p class="text-muted">© 2023 Mi sitio web</p>
 		</div>
 	</footer>
-	
-	<script type="text/javascript" src="./js/login.js">
-	</script>
+
+	<script type="text/javascript" src="./js/login.js"></script>
+	<script type="module" src="./js/usuario.js"></script>
+
+
 </body>
 </html>

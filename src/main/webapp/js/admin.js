@@ -7,7 +7,7 @@ function usuariosPDF(event) {
 	xhr.onload = function() {
 		var graficas = JSON.parse(xhr.responseText);
 		if (xhr.status == 202) {
-			console.table(graficas);
+			//console.table(graficas);
 
 			// Create an array to hold the table rows
 			var tableRows = [];
@@ -63,7 +63,7 @@ function accionesPDF(event) {
 	xhr.onload = function() {
 		var graficas = JSON.parse(xhr.responseText);
 		if (xhr.status == 202) {
-			console.table(graficas);
+			//console.table(graficas);
 
 			// Create an array to hold the table rows
 			var tableRows = [];

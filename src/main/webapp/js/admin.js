@@ -63,7 +63,7 @@ function accionesPDF(event) {
 	xhr.onload = function() {
 		var graficas = JSON.parse(xhr.responseText);
 		if (xhr.status == 202) {
-			//console.table(graficas);
+			console.table(graficas);
 
 			// Create an array to hold the table rows
 			var tableRows = [];
@@ -76,8 +76,10 @@ function accionesPDF(event) {
 				var row = [
 					info.id,
 					info.idCliente,
-					info.accionesCompradas,
+					info.acciones,
 					info.nombreEmpresa,
+					info.fecha,
+					info.estado,
 				];
 
 				// Add the row object to the tableRows array
@@ -92,7 +94,7 @@ function accionesPDF(event) {
 						table: {
 							headerRows: 1,
 							body: [
-								['ID', 'IDcliente','accionesCompradas', 'nombreEmpresa'],
+								['ID', 'IDcliente','Acciones', 'Nombre Empresa','Fecha','Estado'],
 								...tableRows // Spread the tableRows array to insert all rows
 							]
 						}

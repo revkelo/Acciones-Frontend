@@ -17,11 +17,13 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
 <script src="./js/admin.js"></script>
+<link rel="stylesheet" href="./css/admin.css">
+
 </head>
 
 <body>
 
-	<h1>H</h1>
+
 	<!-- Menú de navegación -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -35,10 +37,10 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Listar</a></li>
-					<li><a href="#">Actualizar</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Agregar</a></li>
+					<li><a href="#empresa">Empresa</a></li>
+					<li><a href="#usuario">Usuario</a></li>
+					<li><a href="#acciones">Acciones</a></li>
+
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle"
@@ -53,30 +55,240 @@
 			</div>
 		</div>
 	</nav>
-	<!-- Contenido de la página -->
-	<div class="container content">
-		<h1>Administrador</h1>
-		<p>En esta página podrás administrar las acciones, incluyendo
-			opciones para listar, actualizar, eliminar y agregar nuevas acciones.</p>
+
+
+	<div id="title">
+
+
+		<div class="text-center" id="pdf">
+			<div class="container mx-auto" id="empresa">
+				<h1>Administrador</h1>
+				<p>En esta página podrás administrar las acciones, incluyendo
+					opciones para listar, actualizar, eliminar y agregar nuevas
+					acciones.</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="text-center">
+		<div class="container mx-auto">
+			<p class="h2">Empresas CRUD</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+		<h2>PDF-Empresa</h2>
+		<form onsubmit="empresaPDF(event)" class="custom-form">
+			<button type="submit" class="btn btn-primary">Pdf Empresa</button>
+		</form>
+
+		<h2>Agregar Empresa</h2>
+		<form onsubmit="agregarEmpresa(event)" class="custom-form">
+			<div class="form-group">
+				<label for="nombre">Nombre de la Empresa</label> <input type="text"
+					class="form-control" id="nombre" placeholder="Nombre de la empresa"
+					required>
+			</div>
+			<div class="form-group">
+				<label for="precio">Precio de Acción</label> <input type="text"
+					class="form-control" id="precio" placeholder="Precio de acción"
+					required>
+			</div>
+			<input type="submit" value="Agregar" class="btn btn-primary" />
+
+		</form>
+
+		<h2>Eliminar Empresa</h2>
+		<form onsubmit="eliminarEmpresa(event)" class="custom-form">
+			<div class="form-group">
+				<label for="nombre_eliminar">Nombre de la Empresa a eliminar</label>
+				<input type="text" class="form-control" id="id_empresa"
+					placeholder="Id empresa" required>
+			</div>
+			<input type="submit" value="Eliminar" class="btn btn-primary" />
+		</form>
+
+		<h2>Empresa Actualizar Precio de Acción</h2>
+		<form onsubmit="actualizarEmpresa(event)" class="custom-form">
+		
+			<div class="form-group">
+				<label for="nombre_actualizar">ID de la empresa</label> <input
+					type="text" class="form-control" id="id_actualizar"
+					placeholder="ID empresa" required>
+			</div>
+			<div class="form-group">
+				<label for="nombre_actualizar">Nombre de la Empresa</label> <input
+					type="text" class="form-control" id="nombre_actualizar"
+					placeholder="Nombre de la empresa" required>
+			</div>
+			<div class="form-group" id="usuario">
+				<label for="precio_actualizar">Nuevo Precio de Acción</label> <input
+					type="text" class="form-control" id="precio_actualizar"
+					placeholder="Nuevo precio de acción" required>
+			</div>
+			<input type="submit" value="Actualizar" class="btn btn-primary" />
+		</form>
+	</div>
+
+	<div class="text-center">
+		<div class="container mx-auto">
+			<p class="h2">Usuario CRUD</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+		<h2>PDF-Usuarios</h2>
+		<form onsubmit="usuariosPDF(event)" class="custom-form">
+			<button type="submit" class="btn btn-primary">Pdf Usuarios</button>
+		</form>
+
+		<h2>Agregar Usuario</h2>
+		<form class="custom-form" onsubmit="agregarUsuario(event)">
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" id="nombre_usuario_agregar" placeholder="Nombre" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label> <input type="email"
+					class="form-control" id="email_usuario_agregar" placeholder="Email" required>
+			</div>
+			<div class="form-group">
+				<label for="contrasena">Contraseña</label> <input type="password"
+					class="form-control" id="contrasena_usuario_agregar" placeholder="Contraseña" required>
+			</div>
+			<input type="submit" value="Agregar" class="btn btn-primary" />
+		</form>
+
+		<h2>Eliminar Usuario</h2>
+		<form class="custom-form">
+			<div class="form-group">
+				<label for="email_eliminar">Email del Usuario a eliminar</label> <input
+					type="email" class="form-control" id="email_eliminar"
+					placeholder="Email del Usuario">
+			</div>
+			<button type="button" class="btn btn-primary"
+				onclick="eliminarUsuario()">Eliminar Usuario</button>
+		</form>
+		<h2>Actualizar Usuario</h2>
+		<form class="custom-form">
+			<div class="form-group">
+				<label for="id">ID del Usuario</label> <input type="text"
+					class="form-control" id="id" placeholder="ID del Usuario">
+			</div>
+			<div class="form-group">
+				<label for="nombre_actualizar">Nuevo Nombre</label> <input
+					type="text" class="form-control" id="nombre_actualizar"
+					placeholder="Nuevo Nombre">
+			</div>
+			<div class="form-group">
+				<label for="email_actualizar">Nuevo Email</label> <input
+					type="email" class="form-control" id="email_actualizar"
+					placeholder="Nuevo Email">
+			</div>
+			<div class="form-group" id="acciones">
+				<label for="contrasena_actualizar">Nueva Contraseña</label> <input
+					type="password" class="form-control" id="contrasena_actualizar"
+					placeholder="Nueva Contraseña">
+			</div>
+			<button type="button" class="btn btn-primary"
+				onclick="actualizarUsuario()">Actualizar Usuario</button>
+		</form>
+
+
+	</div>
+
+	<div class="text-center">
+		<div class="container mx-auto">
+			<p class="h2">Acciones CRUD</p>
+		</div>
 	</div>
 
 	<div class="container">
-		<h2>PDF-Usuarios</h2>
-		<form onsubmit="usuariosPDF(event)">
 
-			<button type="submit" class="btn btn-primary">Pdf Usuarios</button>
-		</form>
 
 		<h2>PDF-Acciones</h2>
-		<form onsubmit="accionesPDF(event)">
-
-			<button type="submit" class="btn btn-primary">Pdf Usuarios</button>
+		<form onsubmit="accionesPDF(event)" class="custom-form">
+			<button type="submit" class="btn btn-primary">Pdf Acciones</button>
+		</form>
+		<h2>Agregar Acción</h2>
+		<form class="custom-form">
+			<div class="form-group">
+				<label for="id_cliente">ID Cliente</label> <input type="text"
+					class="form-control" id="id_cliente" placeholder="ID Cliente">
+			</div>
+			<div class="form-group">
+				<label for="acciones">Acciones</label> <input type="text"
+					class="form-control" id="acciones" placeholder="Acciones">
+			</div>
+			<div class="form-group">
+				<label for="nombre_empresa">Nombre de la Empresa</label> <input
+					type="text" class="form-control" id="nombre_empresa"
+					placeholder="Nombre de la empresa">
+			</div>
+			<div class="form-group">
+				<label for="fecha">Fecha</label> <input type="date"
+					class="form-control" id="fecha">
+			</div>
+			<div class="form-group">
+				<label for="estado">Estado</label> <input type="text"
+					class="form-control" id="estado" placeholder="Estado">
+			</div>
+			<button type="button" class="btn btn-primary"
+				onclick="agregarAccion()">Agregar Acción</button>
 		</form>
 
+		<h2>Eliminar</h2>
+		<form class="custom-form">
+			<div class="form-group">
+				<label for="id_eliminar">ID</label> <input type="text"
+					class="form-control" id="id_eliminar" placeholder="ID">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="eliminar()">Eliminar</button>
+		</form>
+
+		<h2>Actualizar</h2>
+		<form class="custom-form">
+			<div class="form-group">
+				<label for="id_actualizar">ID</label> <input type="text"
+					class="form-control" id="id_actualizar" placeholder="ID">
+			</div>
+			<div class="form-group">
+				<label for="id_cliente_actualizar">ID Cliente</label> <input
+					type="text" class="form-control" id="id_cliente_actualizar"
+					placeholder="ID Cliente">
+			</div>
+			<div class="form-group">
+				<label for="acciones_actualizar">Acciones</label> <input type="text"
+					class="form-control" id="acciones_actualizar"
+					placeholder="Acciones">
+			</div>
+			<div class="form-group">
+				<label for="nombre_empresa_actualizar">Nombre de la Empresa</label>
+				<input type="text" class="form-control"
+					id="nombre_empresa_actualizar" placeholder="Nombre de la empresa">
+			</div>
+			<div class="form-group">
+				<label for="fecha_actualizar">Fecha</label> <input type="date"
+					class="form-control" id="fecha_actualizar">
+			</div>
+			<div class="form-group">
+				<label for="estado_actualizar">Estado</label> <input type="text"
+					class="form-control" id="estado_actualizar" placeholder="Estado">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="actualizar()">Actualizar</button>
+		</form>
 	</div>
-
-
-
 
 
 	<!-- Footer -->

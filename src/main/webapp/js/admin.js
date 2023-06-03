@@ -257,7 +257,7 @@ function actualizarEmpresa(event) {
 			var success = xhr.responseText.toLowerCase() === 'true';
 			if (xhr.status == '200') {
 				alert("Actualizado");
-				console.log("Success: " + success);
+				console.log("Success: as" + success);
 			} else {
 				console.error("Error");
 

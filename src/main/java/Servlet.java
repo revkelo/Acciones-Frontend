@@ -22,9 +22,7 @@ public class Servlet extends HttpServlet {
 		String url = uploadDir.getAbsolutePath();
 		String carrera = req.getParameter("carrera");
 
-		salida.println("<html><body onload=\"showLoginError()\">  <h1>No hay carreras Guardadas</h1> </body></html>");
-		resp.setHeader("Refresh", "1; URL=admin.jsp");
-		salida.close();
+
 
 		salida.println("<!DOCTYPE html>\r\n" + "<html>\r\n" + "\r\n" + "<head>\r\n" + "<meta charset=\"UTF-8\" />\r\n"
 				+ "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n"

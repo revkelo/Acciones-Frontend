@@ -309,42 +309,179 @@ function agregarUsuario(event) {
 	xhr.send(null);
 }
 
-function eliminarUsuario() {
-	// Lógica para eliminar una empresa
+function eliminarUsuario(event) {
+
+	event.preventDefault();
 	var email = document.getElementById("email_eliminar_usuario").value;
-	console.log("Eliminar empresa:", email);
+	var url = "http://localhost:8081/api/usuario/" + email;
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("DELETE", url, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 302) {
+				// Deletion successful
+				alert("Eliminado");
+			} else if (xhr.status === 404) {
+				// Company not found
+				alert("not found");
+
+			} else {
+				// Other error occurred
+				alert("Error ");
+
+
+			}
+		}
+	};
+	xhr.send();
+
 }
 
 function actualizarUsuario(event) {
-		event.preventDefault(); // Avoid page reload
+	event.preventDefault(); // Avoid page reload
 	// Lógica para actualizar el precio de una empresa
 	var id = document.getElementById("id_actualizar_usuario").value;
-	var nombre = document.getElementById("id_actualizar_usuario").value;
-	var email = document.getElementById("id_actualizar_usuario").value;
-	var contrasena = document.getElementById("id_actualizar_usuario").value;
+	var nombre = document.getElementById("nombre_actualizar_usuario").value;
+	var email = document.getElementById("email_actualizar_usuario").value;
+	var contrasena = document.getElementById("contrasena_actualizar_usuario").value;
 
 
-	console.log("actualizar usuario:",id,nombre,email,contrasena);
+
+
+
+	var url = "http://localhost:8081/api/usuario/" + id;
+	var xhr = new XMLHttpRequest();
+
+
+	var params = "nombre=" + encodeURIComponent(nombre) + "&email=" + encodeURIComponent(email) + "&contrasena=" + encodeURIComponent(contrasena);
+
+	xhr.open('PUT', url + "?" + params, true);
+
+	xhr.onload = function() {
+		try {
+			var success = xhr.responseText.toLowerCase() === 'true';
+			if (xhr.status == '200') {
+				alert("Actualizado");
+				console.log("Success: as" + success);
+			} else {
+				console.error("Error");
+
+				alert("Error");
+			}
+		} catch (err) {
+			alert("Error: " + err);
+		}
+	};
+
+	xhr.send(null);
 }
 
 
-function agregarAccion() {
+function agregarAccion(event) {
+		event.preventDefault(); // Avoid page reload
 	// Lógica para agregar una empresa
-	var nombre = document.getElementById("nombre").value;
-	var precio = document.getElementById("precio").value;
-	console.log("Agregar empresa:", nombre, precio);
+	var id = document.getElementById("id_agregar_accion").value;
+	var acciones = document.getElementById("acciones_agregar_accion").value;
+	var nombreEmpresa = document.getElementById("nombre_agregar_accion").value;
+	var fecha = document.getElementById("fecha_agregar_accion").value;
+	var estado = document.getElementById("estado_agregar_accion").value;
+
+
+	var url = "http://localhost:8081/api/acciones";
+	var xhr = new XMLHttpRequest();
+
+
+	var params = "idCliente=" + encodeURIComponent(id) + "&acciones=" + encodeURIComponent(acciones)+"&nombreEmpresa="+encodeURIComponent(nombreEmpresa)+"&fecha="+encodeURIComponent(fecha)+"&estado="+encodeURIComponent(estado);
+
+	xhr.open('POST', url + "?" + params, true);
+
+	xhr.onload = function() {
+		try {
+			var success = xhr.responseText.toLowerCase() === 'true';
+			if (xhr.status == '200') {
+				alert("Creado");
+				console.log("Success: " + success);
+			} else {
+				console.error("Error");
+
+				alert("Error");
+			}
+		} catch (err) {
+			alert("Error: " + err);
+		}
+	};
+
+	xhr.send(null);
+
 }
 
-function eliminarAccion() {
+function eliminarAccion(event) {
 	// Lógica para eliminar una empresa
-	var nombreEliminar = document.getElementById("nombre_eliminar").value;
-	console.log("Eliminar empresa:", nombreEliminar);
+
+	
+	event.preventDefault();
+	var email = document.getElementById("id_eliminar_agregar_accion").value;
+	var url = "http://localhost:8081/api/acciones/" + email;
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("DELETE", url, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 302) {
+				// Deletion successful
+				alert("Eliminado");
+			} else if (xhr.status === 404) {
+				// Company not found
+				alert("not found");
+
+			} else {
+				// Other error occurred
+				alert("Error ");
+
+
+			}
+		}
+	};
+	xhr.send();
 }
 
-function actualizarAccion() {
+function actualizarAccion(event) {
+		event.preventDefault();
 	// Lógica para actualizar el precio de una empresa
-	var nombreActualizar = document.getElementById("nombre_actualizar").value;
-	var precioActualizar = document.getElementById("precio_actualizar").value;
-	console.log("Actualizar empresa:", nombreActualizar, "Nuevo precio:", precioActualizar);
+	var id = document.getElementById("id_actualizar_Accion").value;
+	var idcliente = document.getElementById("idCliente_Accion_actualizar_Accion").value;
+	var acciones = document.getElementById("acciones_actualizar_Accion").value;
+	var nombreEmpresa = document.getElementById("nombre_actualizar_Accion").value;
+	var fecha = document.getElementById("fecha_actualizar_Accion").value;
+	var estado = document.getElementById("estado_actualizar_Accion").value;
+	
+	var url = "http://localhost:8081/api/acciones/" + id;
+	var xhr = new XMLHttpRequest();
+
+
+	var params = "idCliente=" + encodeURIComponent(idcliente) + "&acciones=" + encodeURIComponent(acciones) + "&nombreEmpresa=" + encodeURIComponent(nombreEmpresa)+"&fecha="+encodeURIComponent(fecha)+"&estado="+encodeURIComponent(estado);
+
+
+	
+	xhr.open('PUT', url + "?" + params, true);
+
+	xhr.onload = function() {
+		try {
+			var success = xhr.responseText.toLowerCase() === 'true';
+			if (xhr.status == '200') {
+				alert("Actualizado");
+				console.log("Success: as" + success);
+			} else {
+				console.error("Error");
+
+				alert("Error");
+			}
+		} catch (err) {
+			alert("Error: " + err);
+		}
+	};
+
+	xhr.send(null);
 }
 

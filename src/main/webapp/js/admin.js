@@ -281,23 +281,23 @@ function agregarUsuario(event) {
 	var nombre = document.getElementById("nombre_usuario_agregar").value;
 	var email = document.getElementById("email_usuario_agregar").value;
 	var contrasena = document.getElementById("contrasena_usuario_agregar").value;
-	
+
 	var url = "http://localhost:8081/api/usuario";
 	var xhr = new XMLHttpRequest();
 
 
-	var params = "nombre=" + encodeURIComponent(nombre) + "&email=" + encodeURIComponent(email)+ "&contrasena=" + encodeURIComponent(contrasena);
+	var params = "nombre=" + encodeURIComponent(nombre) + "&email=" + encodeURIComponent(email) + "&contrasena=" + encodeURIComponent(contrasena);
 
 	xhr.open('POST', url + "?" + params, true);
 
 	xhr.onload = function() {
 		try {
-		
+
 			if (xhr.status == '202') {
 				alert("Creado");
-	
+
 			} else {
-			
+
 
 				alert("Error");
 			}
@@ -311,32 +311,37 @@ function agregarUsuario(event) {
 
 function eliminarUsuario() {
 	// Lógica para eliminar una empresa
-	var nombreEliminar = document.getElementById("nombre_eliminar").value;
-	console.log("Eliminar empresa:", nombreEliminar);
+	var email = document.getElementById("email_eliminar_usuario").value;
+	console.log("Eliminar empresa:", email);
 }
 
-function actualizarUsuario() {
+function actualizarUsuario(event) {
+		event.preventDefault(); // Avoid page reload
 	// Lógica para actualizar el precio de una empresa
-	var nombreActualizar = document.getElementById("nombre_actualizar").value;
-	var precioActualizar = document.getElementById("precio_actualizar").value;
-	console.log("Actualizar empresa:", nombreActualizar, "Nuevo precio:", precioActualizar);
+	var id = document.getElementById("id_actualizar_usuario").value;
+	var nombre = document.getElementById("id_actualizar_usuario").value;
+	var email = document.getElementById("id_actualizar_usuario").value;
+	var contrasena = document.getElementById("id_actualizar_usuario").value;
+
+
+	console.log("actualizar usuario:",id,nombre,email,contrasena);
 }
 
 
-function agregar() {
+function agregarAccion() {
 	// Lógica para agregar una empresa
 	var nombre = document.getElementById("nombre").value;
 	var precio = document.getElementById("precio").value;
 	console.log("Agregar empresa:", nombre, precio);
 }
 
-function eliminar() {
+function eliminarAccion() {
 	// Lógica para eliminar una empresa
 	var nombreEliminar = document.getElementById("nombre_eliminar").value;
 	console.log("Eliminar empresa:", nombreEliminar);
 }
 
-function actualizar() {
+function actualizarAccion() {
 	// Lógica para actualizar el precio de una empresa
 	var nombreActualizar = document.getElementById("nombre_actualizar").value;
 	var precioActualizar = document.getElementById("precio_actualizar").value;

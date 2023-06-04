@@ -11,7 +11,14 @@ Este repositorio contiene el código fuente del frontend de nuestra página web 
 
 ## Capturas de Pantalla
 
-Si es relevante, puedes incluir capturas de pantalla del proyecto en funcionamiento.
+<p align="center">
+    <img src="./img/1.PNG" width="800" />
+   <img src="./img/2.PNG" width="800" />
+    <img src="./img/3.PNG" width="800" />
+    <img src="./img/4.PNG" width="800" />
+    <img src="./img/5.PNG" width="800" />
+      <img src="./img/6.PNG" width="800" />
+</p>
 
 ## Instalación
 

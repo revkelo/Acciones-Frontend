@@ -20,6 +20,20 @@ Este repositorio contiene el código fuente del frontend de nuestra página web 
       <img src="./img/6.PNG" width="800" />
 </p>
 
+
+## Tecnologías utilizadas
+
+El frontend de nuestra página web de acciones está desarrollado utilizando las siguientes tecnologías:
+
+- HTML5, CSS3 y JavaScript: Utilizados para la estructura, estilo y comportamiento de la interfaz de usuario.
+- Frameworks y bibliotecas de JavaScript como bootstrap.
+- HTTP : Utilizados para la comunicación con el backend y la obtención de datos en tiempo real.
+- Gráficos y visualizaciones Chart.js: Permiten representar los datos de manera visualmente atractiva.
+- pdfMake : Generar los pdf de cada cosa.
+- Herramientas de diseño responsivo y adaptabilidad: Garantizan una experiencia de usuario óptima en diferentes dispositivos y tamaños de pantalla.
+
+Estas tecnologías se combinan para crear una interfaz de usuario intuitiva y atractiva, que se conecta al backend para obtener y mostrar la información de las acciones en tiempo real.
+
 ## Instalación
 
 Necesitas tomcat 10.1 para que sea ejecutado

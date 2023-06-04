@@ -13,13 +13,13 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 </head>
 
 <body>
-
-
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -29,11 +29,11 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Mi página de acciones</a>
+				<a class="navbar-brand" href="#">Inicio</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="/api/lista">Mis acciones</a></li>
+					<li><a id="tendenciaPdfLink" href="#" >Tendencia empresas PDF</a></li>
 					<li><a id="generarPdfLink" href="#">Generar PDF</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -52,7 +52,7 @@
 	</nav>
 
 	<button onclick="comprarAccion()">Comprar Acción</button>
-	<!-- Contenido de la página -->
+
 	<div class="container content">
 		<h1>Bienvenido/a a mi página de acciones</h1>
 		<p>En esta página podrás acceder a información sobre tus
@@ -98,35 +98,22 @@
 	</div>
 
 
-
-
-
-
-
-
 	<div class="container" id="acciones">
 		<h2>Acciones</h2>
 
 
 	</div>
 
-
-
-
-
-
-
-
 	<script src="./js/acciones.js"></script>
+	
 
-	<!-- Footer -->
+
 	<footer class="footer">
 		<div class="container">
 			<p class="text-muted">© 2023 Mi sitio web</p>
 		</div>
 	</footer>
 
-	<!-- Bootstrap JS -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script

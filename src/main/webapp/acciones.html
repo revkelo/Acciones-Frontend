@@ -1,79 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head >
-    <title>Mi página de acciones con menú Bootstrap</title>
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-  
+<head>
+<title>Acciones</title>
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./css/style.css">
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 </head>
 
 <body>
 
-<h1>Hola, <span id="nombre" >Nombre predeterminado</span></h1>
-    <!-- Menú de navegación -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Mi página de acciones</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="/api/lista">Mis acciones</a></li>
-                    <li><a href="#">Generar PDF</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="glyphicon glyphicon-user"></span> Usuario
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/api/cerrar">Cerrar sesión</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Contenido de la página -->
-    <div class="container content">
-        <h1>Bienvenido/a a mi página de acciones</h1>
-        <p>En esta página podrás acceder a información sobre tus inversiones en acciones y generar reportes en formato PDF para llevar un registro detallado de tus transacciones. Utiliza el menú de navegación para acceder a las diferentes secciones.</p>
-    </div>
 
-    <div class="container" id="acciones">
-        <h2>Acciones</h2>
 
-        <canvas id="gamestop"></canvas>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Mi página de acciones</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="/api/lista">Mis acciones</a></li>
+					<li><a id="generarPdfLink" href="#">Generar PDF</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#"> <span
+							class="glyphicon glyphicon-user"></span> Usuario <span
+							class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="http://localhost:8081/api/cerrar">Cerrar
+									sesión</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-        <div id="cuadro"></div>
-        <p>Precio Acción: $4 dólares</p>
-    </div>
+	<button onclick="comprarAccion()">Comprar Acción</button>
+	<!-- Contenido de la página -->
+	<div class="container content">
+		<h1>Bienvenido/a a mi página de acciones</h1>
+		<p>En esta página podrás acceder a información sobre tus
+			inversiones en acciones y generar reportes en formato PDF para llevar
+			un registro detallado de tus transacciones. Utiliza el menú de
+			navegación para acceder a las diferentes secciones.</p>
+	</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">© 2023 Mi sitio web</p>
-        </div>
-    </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Compra de Acciones</h2>
+				<form onsubmit="comprarAccion(event)">
+					<div class="form-group">
+						<label for="nombreEmpresa">Nombre de la empresa:</label> <input
+							type="text" class="form-control" id="nombreEmpresa">
+					</div>
+					<div class="form-group">
+						<label for="cantidadAcciones">Cantidad de acciones a
+							comprar:</label> <input type="number" class="form-control"
+							id="cantidadAcciones">
+					</div>
+					<input type="submit">
+				</form>
+			</div>
+			<div class="col-md-6">
+				<h2>Venta de Acciones</h2>
+				<form onsubmit="venderAccion(event)">
+					<div class="form-group">
+						<label for="nombreEmpresaVenta">Nombre de la empresa:</label> <input
+							type="text" class="form-control" id="nombreEmpresaVenta">
+					</div>
+					<div class="form-group">
+						<label for="cantidadAccionesVenta">Cantidad de acciones a
+							vender:</label> <input type="number" class="form-control"
+							id="cantidadAccionesVenta">
+					</div>
+					<input type="submit">
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="container" id="acciones">
+		<h2>Acciones</h2>
+
+
+	</div>
+
+
+
+
+
+
+
+
+	<script src="./js/acciones.js"></script>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">© 2023 Mi sitio web</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

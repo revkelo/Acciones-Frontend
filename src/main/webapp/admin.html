@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Mi página de acciones con menú Bootstrap</title>
+<title>Acciones</title>
 <!-- Meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,8 @@
 							class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="index.html">Cerrar sesión</a></li>
+							<li><a href="http://localhost:8081/api/cerrar">Cerrar
+									sesión</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -251,6 +252,12 @@
 					placeholder="Estado" required>
 			</div>
 
+			<div class="form-group">
+				<label for="Valor">Valor</label> <input type="text"
+					class="form-control" id="valor_agregar_accion" placeholder="Valor"
+					required>
+			</div>
+
 
 			<input type="submit" value="Agregar" class="btn btn-primary" />
 		</form>
@@ -274,8 +281,9 @@
 			</div>
 			<div class="form-group">
 				<label for="id_cliente_actualizar">ID Cliente</label> <input
-					type="text" class="form-control" id="idCliente_Accion_actualizar_Accion"
-					placeholder="ID Cliente" required>
+					type="text" class="form-control"
+					id="idCliente_Accion_actualizar_Accion" placeholder="ID Cliente"
+					required>
 			</div>
 			<div class="form-group">
 				<label for="acciones_actualizar">Acciones</label> <input type="text"
@@ -296,6 +304,12 @@
 				<label for="estado_actualizar">Estado</label> <input type="text"
 					class="form-control" id="estado_actualizar_Accion"
 					placeholder="Estado" required>
+			</div>
+
+			<div class="form-group">
+				<label for="Valor">Valor</label> <input type="text"
+					class="form-control" id="valor_actualizar_accion" placeholder="Valor"
+					required>
 			</div>
 			<input type="submit" value="Actualizar" class="btn btn-primary" />
 		</form>

@@ -26,7 +26,7 @@ function empresaPDF(event) {
 
 			var docDefinition = {
 				content: [
-					'¡Hola, esto es un PDF generado con pdfmake!  Nicolas es una perrra',
+					'¡Empresa',
 
 					{
 						table: {
@@ -79,7 +79,7 @@ function usuariosPDF(event) {
 		
 			var docDefinition = {
 				content: [
-					'¡Hola, esto es un PDF generado con pdfmake!  Nicolas es una perrra',
+					'¡Usuarios',
 
 					{
 						table: {
@@ -141,7 +141,7 @@ function accionesPDF(event) {
 		
 			var docDefinition = {
 				content: [
-					'¡Hola, esto es un PDF generado con pdfmake!',
+					'¡Acciones!',
 					{
 						table: {
 							headerRows: 1,

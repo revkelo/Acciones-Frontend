@@ -158,7 +158,7 @@ function pdf(id) {
 
 				var docDefinition = {
 					content: [
-						'¡Hola, esto es un PDF generado con pdfmake!',
+						'¡Historial de compras o ventas sin importar el tiempo!',
 						{
 							table: {
 								headerRows: 1,

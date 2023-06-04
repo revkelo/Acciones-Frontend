@@ -87,7 +87,7 @@ function tendenciaPdf(event) {
 
 				var docDefinition = {
 					content: [
-						'¡Hola, esto es un PDF generado con pdfmake!',
+						'¡Pdf,TENDENCIA DE ACCIONES POR EMPRESA!',
 						{
 							table: {
 								headerRows: 1,

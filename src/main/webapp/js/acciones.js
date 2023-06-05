@@ -61,7 +61,7 @@ function tendenciaPdf(event) {
 	xhr.onload = function() {
 
 		try {
-			// Code that might throw an exception
+
 
 			var empresa = JSON.parse(xhr.responseText);
 			if (xhr.status == 202) {
@@ -129,7 +129,7 @@ function pdf(id) {
 	xhr.onload = function() {
 
 		try {
-			// Code that might throw an exception
+
 
 			var graficas = JSON.parse(xhr.responseText);
 			if (xhr.status == 202) {
@@ -262,6 +262,40 @@ function comprarAccion(event) {
 
 }
 
+function valorVenta(event) {
+	event.preventDefault();
+	var nombre = document.getElementById('nombreEmpresaVenta').value;
+	var cantidad = parseInt(document.getElementById('cantidadAccionesVenta').value);
+
+	var precioActual = 0;
+	for (var i = 0; i < graficasData.length; i++) {
+		if (graficasData[i].nombre === nombre) {
+			precioActual = graficasData[i].precioAccion;
+			break;
+		}
+	}
+	var valor = cantidad * precioActual;
+	document.getElementById('valorTotal').textContent = "El valor de venta es $ " + valor;
+
+}
+
+function valorCompra(event) {
+	event.preventDefault();
+	var nombre = document.getElementById('nombreEmpresa').value;
+	var cantidad = parseInt(document.getElementById('cantidadAcciones').value);
+
+	var precioActual = 0;
+	for (var i = 0; i < graficasData.length; i++) {
+		if (graficasData[i].nombre === nombre) {
+			precioActual = graficasData[i].precioAccion;
+			break;
+		}
+	}
+	var valor = cantidad * precioActual;
+	document.getElementById('valorTotal1').textContent = "El valor de Compra es $ " + valor;
+
+}
+
 function venderAccion(event) {
 
 	var usuarioArray = [];
@@ -372,7 +406,18 @@ function updateData(chart, priceSpan, nombre) {
 	var newPrice = parseFloat(priceSpan.textContent.split(':')[1].trim()) + randomValue;
 	priceSpan.textContent = 'Precio de acción: ' + newPrice;
 
-	// Save the current price to the database using XMLHttpRequest
+
+
+	for (var i = 0; i < graficasData.length; i++) {
+
+		if (graficasData[i].nombre === nombre) {
+			graficasData[i].precioAccion = newPrice;
+			break;
+		}
+	}
+
+
+
 	var url = 'http://localhost:8081/api/tendencia';
 	var xhr = new XMLHttpRequest();
 	var params = 'nombreEmpresa=' + encodeURIComponent(nombre) + '&valor=' + encodeURIComponent(newPrice);

@@ -74,10 +74,11 @@
 					<div class="form-group">
 						<label for="cantidadAcciones">Cantidad de acciones a
 							comprar:</label> <input type="number" class="form-control"
-							id="cantidadAcciones">
+							id="cantidadAcciones" oninput="valorCompra(event);" >
 					</div>
 					<input type="submit">
 				</form>
+					<span id="valorTotal1"></span>
 			</div>
 			<div class="col-md-6">
 				<h2>Venta de Acciones</h2>
@@ -89,10 +90,11 @@
 					<div class="form-group">
 						<label for="cantidadAccionesVenta">Cantidad de acciones a
 							vender:</label> <input type="number" class="form-control"
-							id="cantidadAccionesVenta">
+							id="cantidadAccionesVenta" oninput="valorVenta(event);">
 					</div>
 					<input type="submit">
 				</form>
+				<span id="valorTotal"></span>
 			</div>
 		</div>
 	</div>
